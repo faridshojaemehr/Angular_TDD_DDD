@@ -1,4 +1,4 @@
-import { Events } from '../../event.enum';
+import { Events } from '../../events/event.enum';
 
 export interface ICustomer {
   Firstname: string;

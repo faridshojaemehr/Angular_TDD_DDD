@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { LocalStorgeService } from '../local-storge.service';
+
+import { BehaviorSubject } from 'rxjs';
+import { Events } from 'src/app/core/events/event.enum';
 import {
   ICustomer,
   ICustomerImplementation,
-} from 'src/app/core/events/entity/costumer-model/customer.interface';
-import { BehaviorSubject } from 'rxjs';
-import { Events } from 'src/app/core/events/event.enum';
+} from 'src/app/core/entity/costumer-model/customer.interface';
 
 @Injectable({
   providedIn: 'root',

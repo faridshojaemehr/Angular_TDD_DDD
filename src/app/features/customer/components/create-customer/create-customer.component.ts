@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PhoneNumberValidator } from 'src/app/core/_helpers/phone-number-regexps';
-import {
-  CustomerFormBtnType,
-  ICustomer,
-} from 'src/app/core/events/entity/costumer-model/customer.interface';
+
 import { CustomerRepositryService } from 'src/app/domain/services/repository/customer-repositry.service';
 import { SubscriptionDirective } from 'src/app/shared/dirctives/subscription.directive';
 import { CustomerService } from '../../services/customer.service';
 import { ToastService } from 'src/app/shared/services/ToastService/toast-service.service';
+import {
+  CustomerFormBtnType,
+  ICustomer,
+} from 'src/app/core/entity/costumer-model/customer.interface';
 
 @Component({
   selector: 'app-create-customer',
