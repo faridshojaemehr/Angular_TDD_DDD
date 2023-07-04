@@ -1,12 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICustomer } from 'src/app/core/events/entity/costumer-model/customer.interface';
+import { CustomerRepositryService } from 'src/app/domain/services/repository/customer-repositry.service';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.css'],
+  styleUrls: ['./customer-list.component.scss'],
 })
-export class CustomerListComponent implements OnInit {
-  constructor() {}
+export class CustomerListComponent {
+  displayedColumns: string[] = [
+    'Firstname',
+    'Lastname',
+    'DateOfBirth',
+    'PhoneNumber',
+    'Email',
+    'BankAccountNumber',
+    'action',
+  ];
+  customerDataSource: Observable<ICustomer[]>;
 
-  ngOnInit(): void {}
+  constructor(
+    private customerRepository: CustomerRepositryService,
+    private customerService: CustomerService
+  ) {
+    this.customerDataSource = customerRepository._customers;
+  }
+
+  deleteCustomer(row: ICustomer) {
+    this.customerRepository.deleteCustomer(row.Email);
+  }
+  editCustomer(row: ICustomer) {
+    this.customerService.editCustomer.next(row);
+  }
 }
