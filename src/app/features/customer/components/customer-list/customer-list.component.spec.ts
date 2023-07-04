@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomerListComponent } from './customer-list.component';
+import { CustomerService } from '../../services/customer.service';
 import { MaterialModule } from 'src/app/shared/material-modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomerService } from '../../services/customer.service';
 
 describe('CustomerListComponent', () => {
   let component: CustomerListComponent;
@@ -12,15 +11,11 @@ describe('CustomerListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CustomerListComponent],
-      imports: [
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-      ],
-      providers: [CustomerService],
-    }).compileComponents();
+      declarations: [ CustomerListComponent ],
+      imports: [ MaterialModule, FormsModule , ReactiveFormsModule],
+      providers: [ CustomerService ]
+    })
+    .compileComponents();
 
     fixture = TestBed.createComponent(CustomerListComponent);
     component = fixture.componentInstance;

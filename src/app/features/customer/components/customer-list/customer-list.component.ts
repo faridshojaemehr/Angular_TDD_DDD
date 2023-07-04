@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ICustomer } from 'src/app/core/events/entity/costumer-model/customer.interface';
 import { CustomerRepositryService } from 'src/app/domain/services/repository/customer-repositry.service';
 import { CustomerService } from '../../services/customer.service';
-import { ICustomer } from 'src/app/core/entity/costumer-model/customer.interface';
 
 @Component({
   selector: 'app-customer-list',

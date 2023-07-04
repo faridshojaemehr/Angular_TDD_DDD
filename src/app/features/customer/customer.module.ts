@@ -8,15 +8,9 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { MainComponent } from './components/main/main.component';
 import { CustomerRoutes } from './customer.routing';
-import { PhonePipe } from 'src/app/shared/dirctives/phone-formatter';
 
 @NgModule({
-  declarations: [
-    CreateCustomerComponent,
-    PhonePipe,
-    CustomerListComponent,
-    MainComponent,
-  ],
+  declarations: [CreateCustomerComponent, CustomerListComponent, MainComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ICustomer } from 'src/app/core/entity/costumer-model/customer.interface';
+import { ICustomer } from 'src/app/core/events/entity/costumer-model/customer.interface';
 
 @Injectable()
 export class CustomerService {
