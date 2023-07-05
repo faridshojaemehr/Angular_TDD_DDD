@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   template: `
-    <app-create-customer></app-create-customer>
-    <app-customer-list></app-customer-list>
+    <div style="padding: 10rem;">
+      <app-customer-list></app-customer-list>
+    </div>
   `,
 })
 export class MainComponent {

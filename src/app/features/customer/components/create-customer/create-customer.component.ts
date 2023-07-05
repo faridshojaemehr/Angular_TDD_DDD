@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PhoneNumberValidator } from 'src/app/core/_helpers/phone-number-regexps';
 import {
@@ -9,6 +9,7 @@ import { CustomerRepositryService } from 'src/app/domain/services/repository/cus
 import { SubscriptionDirective } from 'src/app/shared/dirctives/subscription.directive';
 import { CustomerService } from '../../services/customer.service';
 import { ToastService } from 'src/app/shared/services/ToastService/toast-service.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-customer',
@@ -27,7 +28,8 @@ export class CreateCustomerComponent
   constructor(
     private toastService: ToastService,
     private customerRepository: CustomerRepositryService,
-    private customerService: CustomerService
+    public dialogRef: MatDialogRef<CreateCustomerComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: ICustomer
   ) {
     super();
 
@@ -45,14 +47,12 @@ export class CreateCustomerComponent
   }
 
   ngOnInit(): void {
-    this.sub.add(
-      this.customerService.editCustomer.subscribe((customer) => {
-        this.setSubmitResultUndefined();
-        this.btnType = 'edit';
-        this.customerForm.patchValue(customer);
-        this.editCustomerInfo = customer;
-      })
-    );
+    if (this.data) {
+      this.setSubmitResultUndefined();
+      this.btnType = 'edit';
+      this.customerForm.patchValue(this.data);
+      this.editCustomerInfo = this.data;
+    }
   }
 
   private setSubmitResultUndefined() {
@@ -65,6 +65,7 @@ export class CreateCustomerComponent
       this.toastService.onSuccessMessage('Create Customer successfully');
       this.customerForm.reset();
       this.btnType = 'insert';
+      this.dialogRef.close();
     }
   }
   private beforeSubmitForm() {
