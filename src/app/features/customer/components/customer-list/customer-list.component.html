@@ -77,18 +77,23 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef data-cy="th-action"></th>
       <td mat-cell *matCellDef="let element" data-cy="td-action">
-        <mat-icon>
-          <span
-            class="material-symbols-outlined"
-            (click)="editCustomer(element)"
-            aria-hidden="false"
-            aria-label="Edit"
-          >
-            edit
-          </span>
+        <mat-icon
+          color="primary"
+          style="cursor: pointer"
+          class="material-symbols-outlined"
+          (click)="editCustomer(element)"
+          aria-hidden="false"
+          aria-label="Edit"
+        >
+          <span> edit </span>
         </mat-icon>
-        <mat-icon aria-hidden="false" (click)="deleteCustomer(element)"
-          ><span class="material-symbols-outlined"> delete </span>
+        <mat-icon
+          color="warn"
+          style="cursor: pointer"
+          aria-hidden="false"
+          (click)="deleteCustomer(element)"
+          class="material-symbols-outlined"
+          ><span> delete </span>
         </mat-icon>
       </td>
     </ng-container>

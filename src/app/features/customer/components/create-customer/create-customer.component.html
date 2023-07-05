@@ -1,5 +1,7 @@
 <div class="container" [formGroup]="customerForm">
-  <h2 class="row">{{ btnType == "edit" ? "Edit" : "Create" + " customer" }}</h2>
+  <h2 class="row">
+    {{ btnType === "edit" ? "Edit customer" : "Create customer" }}
+  </h2>
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>First name</mat-label>
